@@ -33,8 +33,12 @@ public class Singleton {
 
             }
             //Lazy instatiation
+
+            synchronized (Singleton.class){
+                if(firstInstance == null){
             firstInstance = new Singleton();
-            Collections.shuffle(firstInstance.letterList);
+            Collections.shuffle(firstInstance.letterList);}
+            }
         }
         return firstInstance;
     }
